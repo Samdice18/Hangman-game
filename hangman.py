@@ -6,6 +6,7 @@ def select_random_word():
         words = word_file.readlines()
         random_word_index = r.randint(0,len(words))
         word = words[random_word_index].strip()
+        print(word)
 
     return word
 
@@ -123,11 +124,11 @@ def run_game(selected_word, mystery_word):
             continue
         elif len(user_guess) == 1:
             if user_guess in selected_word and user_guess not in guessed_letter:
-                for i in range((len(word_as_list)-1)):
+                for i in range((len(word_as_list))):
                     if word_as_list[i] == user_guess:
                         mystery_word_list[i] = user_guess
                         mystery_word = "".join(mystery_word_list)
-                        if select_random_word == mystery_word:
+                        if selected_word == mystery_word:
                             print("congratulations ...\n")
                             not_guessed = False
                     guessed_letter.append(user_guess)
